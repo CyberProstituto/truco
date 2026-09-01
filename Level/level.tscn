@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://r4wqh6elpuni"]
+
+[ext_resource type="PackedScene" uid="uid://3c8ciqrsbep" path="res://Player/player.tscn" id="1_o6mkr"]
+[ext_resource type="PackedScene" uid="uid://jl3uyywm16yg" path="res://Scenery/room.tscn" id="2_qmtf6"]
+[ext_resource type="PackedScene" uid="uid://c4fgqlq3pds0v" path="res://Scenery/mesa.tscn" id="3_uawph"]
+[ext_resource type="PackedScene" uid="uid://uvwevow7ge1f" path="res://Scenery/cadeira.tscn" id="4_52x1o"]
+[ext_resource type="PackedScene" uid="uid://da2b821pmejbq" path="res://Scenery/desk.tscn" id="5_iincs"]
+[ext_resource type="PackedScene" uid="uid://bqldv2iw0hnod" path="res://Scenery/Guarda_roupa.tscn" id="6_nk1il"]
+[ext_resource type="PackedScene" uid="uid://cjr3281sgfssd" path="res://Scenery/janela.tscn" id="7_d6qko"]
+[ext_resource type="PackedScene" uid="uid://cn27vdcqsdulf" path="res://Scenery/porta.tscn" id="8_22cqp"]
+
+[sub_resource type="Gradient" id="Gradient_0e0kf"]
+offsets = PackedFloat32Array(0.7881356, 0.9915254, 1)
+colors = PackedColorArray(0.29338664, 0.27933922, 0.02228964, 1, 0.64669335, 0.63966966, 0.5111448, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rr5t4"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7nwv6"]
+noise = SubResource("FastNoiseLite_rr5t4")
+color_ramp = SubResource("Gradient_0e0kf")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o6mkr"]
+sky_top_color = Color(0.105882354, 0.16470589, 0.2901961, 1)
+sky_horizon_color = Color(1, 0.41960785, 0.20784314, 1)
+sky_cover = SubResource("NoiseTexture2D_7nwv6")
+ground_bottom_color = Color(0.16862746, 0.11764706, 0.22745098, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_qmtf6"]
+sky_material = SubResource("ProceduralSkyMaterial_o6mkr")
+
+[sub_resource type="Environment" id="Environment_uawph"]
+background_mode = 2
+sky = SubResource("Sky_qmtf6")
+tonemap_mode = 2
+ssil_enabled = true
+glow_enabled = true
+adjustment_enabled = true
+adjustment_brightness = 0.9
+
+[node name="level" type="Node3D" unique_id=1198608183]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=352862577]
+environment = SubResource("Environment_uawph")
+
+[node name="Player" parent="." unique_id=453464926 instance=ExtResource("1_o6mkr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.983328, 3.3865874, -0.8295665)
+floor_max_angle = 1.134464
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1546357129]
+transform = Transform3D(1, 0, 0, 0, 0.57357645, 0.81915206, 0, -0.81915206, 0.57357645, 0, 7, 3.587)
+
+[node name="Room" parent="." unique_id=754223324 instance=ExtResource("2_qmtf6")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -11.405708, 2.8261228, 0)
+
+[node name="Mesa" parent="." unique_id=1548900251 instance=ExtResource("3_uawph")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -8.9621935, 1.1547148, -2.5544949)
+
+[node name="Cadeira1" parent="." unique_id=2110774873 instance=ExtResource("4_52x1o")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -8.935816, 0.79276586, -1.6267891)
+
+[node name="Cadeira2" parent="." unique_id=2027600769 instance=ExtResource("4_52x1o")]
+transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1, -8.935816, 0.79276586, -3.3912528)
+
+[node name="Desk" parent="." unique_id=250610978 instance=ExtResource("5_iincs")]
+transform = Transform3D(-6.119594e-08, 0, 1.4, 0, 1.4, 0, -1.4, 0, -6.119594e-08, -15.186894, 1, 1.5575507)
+
+[node name="roupa" parent="." unique_id=770186460 instance=ExtResource("6_nk1il")]
+transform = Transform3D(-1.8358783e-08, 0, 0.7, 0, 0.42000002, 0, -0.42000002, 0, -3.059797e-08, -13.499921, 0.6939964, 5.0989547)
+
+[node name="Janela" parent="." unique_id=165017259 instance=ExtResource("7_d6qko")]
+transform = Transform3D(0.054378465, 0, -0.029583283, 0, 0.04, 0, 0.0253571, 0, 0.063441545, -15.684984, 1.499932, 0.08376849)
+
+[node name="porta" parent="." unique_id=1287932027 instance=ExtResource("8_22cqp")]
+transform = Transform3D(-5.2453664e-10, 0, 0.01, 0, 0.011, 0, -0.012, 0, -4.3711387e-10, -7.5528264, 0.65225774, 2.9828873)

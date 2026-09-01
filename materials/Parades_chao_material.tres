@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://rr2thb26yyo5"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5nb2d"]
+load_path = "res://.godot/imported/simple-wood-texture.jpg-0f45f27854ff70d2d6b5e146150987d3.s3tc.ctex"
+
+[resource]
+albedo_color = Color(0.52114034, 0.52114064, 0.5211405, 1)
+albedo_texture = SubResource("CompressedTexture2D_5nb2d")
+uv1_scale = Vector3(15, 2, 1)
